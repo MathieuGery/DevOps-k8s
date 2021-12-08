@@ -1,0 +1,20 @@
+name: "[MyProj-Backend] - Publish Docker Backend Container"
+on:
+  # Trigger the workflow on push or pull request,
+  # but only for the main branch
+  push:
+    branches:
+      - main
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: Publish to Registry
+      uses: elgohr/Publish-Docker-Github-Action@master
+      with:
+        name: MathieuGery/DevOps-k8s/MyProj-Backend
+        workdir: MyProj-Backend
+        username: ${{ github.actor }}
+        password: ${{ secrets.DOCKER_TOKEN }}
+        registry: ghcr.io
