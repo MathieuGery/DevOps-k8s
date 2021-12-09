@@ -45,17 +45,13 @@ spec:
           timeoutSeconds: 5
           successThreshold: 1
           failureThreshold: 6
+        ports:
+          - containerPort: 27017
         env:
         - name: MONGO_INITDB_ROOT_USERNAME
-          valueFrom:
-            secretKeyRef:
-              name: mongo-creds
-              key: username
+          value: "admin"
         - name: MONGO_INITDB_ROOT_PASSWORD
-          valueFrom:
-            secretKeyRef:
-              name: mongo-creds
-              key: password
+          value: "password"
         volumeMounts:
         - name: "mongo-data-dir"
           mountPath: "/data/db"
@@ -98,4 +94,4 @@ spec:
   ports:
     - port: 27017
   selector:
-    serice: mongo
+    service: mongo
