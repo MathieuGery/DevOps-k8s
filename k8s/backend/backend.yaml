@@ -50,6 +50,6 @@ spec:
     - port: 8080
       targetPort: 8080
       protocol: TCP
-      nodePort: 31880
+      nodePort: 31870
   selector:
     app: backend
