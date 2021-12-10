@@ -34,9 +34,6 @@ app.get("/cleanup", (req, res) => {
 const APP_PORT = 8080;
 // start the Express server
 app.listen(APP_PORT, () => {
-  console.log("SALUT MATHIEUUUUUUUU", process.env.MONGO_USERNAME,
-  process.env.MONGO_PASSWORD,
-   process.env.MONGO_DATABASE)
   connect()
   console.log(`server started at http://localhost:${process.env.SERVER_PORT || APP_PORT}`);
 });
